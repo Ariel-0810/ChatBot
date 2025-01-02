@@ -1,6 +1,4 @@
 import axios from 'axios';
-// import dotenv from 'dotenv';
-// dotenv.config();
 
 // Configura la base URL obtenida del archivo .env
 export const apiClient = axios.create({

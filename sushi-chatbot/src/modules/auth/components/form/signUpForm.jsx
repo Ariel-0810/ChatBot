@@ -6,7 +6,7 @@ import useSignUp from '../../hooks/useSignUp'
 import { toast } from 'sonner'
 
 
-function SignUpForm() {
+export default function SignUpForm() {
   const { signUp, loading } = useSignUp()
   const navigate = useNavigate()
 
@@ -36,12 +36,12 @@ function SignUpForm() {
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-light-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <h1 className="text-2xl font-semibold text-center mb-6">Crear Cuenta</h1>
-          <form onSubmit={formik.handleSubmit} className="space-y-6">
+          <form onSubmit={formik.handleSubmit} className="space-y-6" role="form" data-testid="sign-up-form">
 
-              {/* Input username */}
               <label className="flex flex-col gap-1">
                 <span>Nombre de usuario</span>
                 <input
+                  id="username"
                   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
                   onChange={formik.handleChange}
                   value={formik.values.username}
@@ -53,12 +53,11 @@ function SignUpForm() {
                 />
                 {formik.touched.username && <span className="border-primary text-primary">{formik.errors.username}</span>}
               </label>
-             {/* Input username */}
 
-                {/* Input Email */}
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               <span>Correo</span>
               <input
+                id="email"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
                 onChange={formik.handleChange}
                 value={formik.values.email}
@@ -70,12 +69,11 @@ function SignUpForm() {
               />
                 {formik.touched.email && <span className="border-primary text-primary">{formik.errors.email}</span>}
                 </label>
-            {/* Input Email */}
 
-            {/* Input Password */} 
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
               <span>Contraseña</span>
               <input
+                id="password"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
                 onChange={formik.handleChange}
                 value={formik.values.password}
@@ -87,24 +85,21 @@ function SignUpForm() {
               />
             {formik.touched.password && <span className="border-primary text-primary">{formik.errors.password}</span>}
             </label>
-            {/* Input Password */}
 
-        {/* Input Password */}
         <div className="flex gap-1">
           <p>Ya tienes una cuenta?</p>
           <Link className="underline" to={Routes.logIn}>
             Ingresar
           </Link>
         </div>
-
-            {/* {error && <p className="text-red-500 text-sm">{error}</p>} */}
+            
             <div>
               <button
                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
                 type="submit"
-                disabled={loading} // Usa `disabled` para deshabilitar el botón durante la carga
+                disabled={loading}
               >
-                {loading ? "Registrando..." : "Registrarse"} {/* Cambia el texto según el estado */}
+                {loading ? "Registrando..." : "Registrarse"}
               </button>
             </div>
           </form>
@@ -113,5 +108,3 @@ function SignUpForm() {
     </div>
   )
 }
-
-export default SignUpForm

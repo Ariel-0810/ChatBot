@@ -22,12 +22,12 @@ export default function LogInForm() {
         })
         console.log('Backend response:', result);  // Verifica la respuesta
         
-        if (result) {
+        if (result?.success) {
             console.log('Login exitoso, redirigiendo a /chat...');
             navigate(Routes.chat);
           } else {
             console.error('Error en el login', result.error);
-            toast.error(result.error || 'Error desconocido');
+            toast.error(result?.error || 'Error desconocido');
           }
         },
       });
@@ -38,12 +38,13 @@ export default function LogInForm() {
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-light-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <h1 className="text-2xl font-semibold text-center mb-6">Login</h1>
-          <form onSubmit={formik.handleSubmit} className="space-y-6">
+          <form onSubmit={formik.handleSubmit} className="space-y-6" role="form" data-testid="log-in-form">
 
                 {/* Input Email */}
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               <span>Email</span>
               <input
+                id="email"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
                 onChange={formik.handleChange}
                 value={formik.values.email}
@@ -53,7 +54,9 @@ export default function LogInForm() {
                 type="email"
                 required
               />
-                {formik.touched.email && <span className="border-primary text-primary">{formik.errors.email}</span>}
+                {formik.touched.email && formik.errors.email && (
+                <span className="text-red-500">{formik.errors.email}</span>
+                )}
                 </label>
 
             {/* Input Email */}
@@ -62,6 +65,7 @@ export default function LogInForm() {
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
               <span>Password</span>
               <input
+                id="password"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
                 onChange={formik.handleChange}
                 value={formik.values.password}
@@ -71,7 +75,9 @@ export default function LogInForm() {
                 type="password"
                 required
               />
-            {formik.touched.password && <span className="border-primary text-primary">{formik.errors.password}</span>}
+            {formik.touched.password && formik.errors.password && (
+            <span className="text-red-500">{formik.errors.password}</span>
+            )}
             </label>
             {/* Input Password */}
 
