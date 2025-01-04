@@ -29,7 +29,7 @@ Asegúrate de tener las siguientes herramientas instaladas:
 1. Clonar el repositorio
    ```bash
    git clone https://github.com/Ariel-0810/Nular_ChatBot-Client.git
-   cd sushi-chatbot
+   cd Nular_ChatBot-Client/sushi-chatbot
    ```
 
 2. Instala las dependencias del proyecto:
