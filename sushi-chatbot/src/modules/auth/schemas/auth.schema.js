@@ -1,38 +1,44 @@
-import * as yup from 'yup'
+import * as yup from "yup";
 
-const passwordRules = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#.*%&@\$%\^&\*])(?=.{8,})/
-const usernameSignUp = /^(\S+$)/g
-const emailRules = /^[^@]+@[^@]+\.[^@]+$/
+const passwordRules =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#.*%&@\$%\^&\*])(?=.{8,})/;
+const usernameSignUp = /^(\S+$)/g;
+const emailRules = /^[^@]+@[^@]+\.[^@]+$/;
 
 export const SignUpSchema = yup.object().shape({
   username: yup
     .string()
-    .min(5, 'Username must be at least 5 characters long')
-    .max(25, 'User name  must contain a maximum of 25 characters')
-    .required('Required, Please Enter your User Name ')
-    .matches(usernameSignUp, 'spaces not allowed'),
-  email: yup.string().max(255).email('Must be a valid email').required('Email is required'),
+    .min(5, "El nombre de usuario debe tener al menos 5 caracteres.")
+    .max(25, "El nombre de usuario debe contener un máximo de 25 caracteres")
+    .required("Obligatorio, por favor ingrese su nombre de usuario")
+    .matches(usernameSignUp, "espacios no permitidos"),
+  email: yup
+    .string()
+    .max(255)
+    .email("Debe ser un correo electrónico válido")
+    .required("El email es requerido")
+    .matches(emailRules, "Debe ser un email"),
   password: yup
     .string()
-    .required('Please Enter your password')
+    .required("Por favor ingrese su contraseña")
     .matches(
       passwordRules,
-      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character: ! @ # . * % & @'
-    ),
-})
+      "Debe contener 8 caracteres: uno en mayúscula, uno en minúscula, un número y un carácter especial: ! @ # . * % &"
+    )
+});
 
 export const LogInSchema = yup.object().shape({
   email: yup
     .string()
-    .min(5, 'El nombre de usuario debe contener al menos 5 caracteres')
-    .max(25, 'El nombre de usuario debe tener un máximo de 25 caracteres')
-    .required('Requerido, por favor introduzca su nombre de usuario')
-    .matches(emailRules, 'Debe ser un mail'),
+    .max(255)
+    .email("Debe ser un correo electrónico válido")
+    .required("El email es requerido")
+    .matches(emailRules, "Debe ser un email"),
   password: yup
     .string()
-    .required('Requerido, por favor ingrese la contraseña')
+    .required("Requerido, por favor ingrese la contraseña")
     .matches(
       passwordRules,
-      'Debe contener 8 caracteres, una mayúscula, una minúscula, un numero y un carácter especial: : ! @ # . * % & @'
-    ),
-})
+      "Debe contener 8 caracteres, una mayúscula, una minúscula, un numero y un carácter especial: : ! @ # . * % &"
+    )
+});

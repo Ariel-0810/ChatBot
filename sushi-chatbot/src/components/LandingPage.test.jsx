@@ -1,10 +1,10 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import LandingPage from './LandingPage';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
+import LandingPage from "./LandingPage";
 
-describe('LandingPage', () => {
-  test('renders main heading', () => {
+describe("LandingPage", () => {
+  test("renders main heading", () => {
     render(
       <Router>
         <LandingPage />
@@ -14,7 +14,7 @@ describe('LandingPage', () => {
     expect(headingElement).toBeInTheDocument();
   });
 
-  test('renders login button', () => {
+  test("renders login button", () => {
     render(
       <Router>
         <LandingPage />
@@ -22,10 +22,10 @@ describe('LandingPage', () => {
     );
     const loginButton = screen.getByText(/Login/i);
     expect(loginButton).toBeInTheDocument();
-    expect(loginButton).toHaveAttribute('href', '/log-in');
+    expect(loginButton).toHaveAttribute("href", "/log-in");
   });
 
-  test('renders specialties section', () => {
+  test("renders specialties section", () => {
     render(
       <Router>
         <LandingPage />
@@ -38,13 +38,15 @@ describe('LandingPage', () => {
     expect(screen.getByText(/Sashimi/i)).toBeInTheDocument();
   });
 
-  test('renders customer testimonials', () => {
+  test("renders customer testimonials", () => {
     render(
       <Router>
         <LandingPage />
       </Router>
     );
-    const testimonialsHeading = screen.getByText(/Lo que dicen nuestros clientes/i);
+    const testimonialsHeading = screen.getByText(
+      /Lo que dicen nuestros clientes/i
+    );
     expect(testimonialsHeading).toBeInTheDocument();
     expect(screen.getByText(/Sarah L./i)).toBeInTheDocument();
     expect(screen.getByText(/Mike T./i)).toBeInTheDocument();

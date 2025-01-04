@@ -7,7 +7,6 @@ function MessageList({ messages, messagesEndRef, updateOrder, order, total, hand
             <ul className="space-y-2 mt-2">
               {message.items.map((item, index) => (
                 <li key={index} className="flex space-x-4 items-start">
-                  {/* <span className="font-bold">{item.name}</span> */}
                   <img src={item.image} alt={item.name} className="w-32 h-32 object-cover rounded-md" />
                   <div className="flex-1 space-y-1">
                   <span className="font-bold text-l">{item.name}</span>

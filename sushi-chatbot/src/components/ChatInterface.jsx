@@ -17,8 +17,6 @@ export default function ChatInterface() {
   const [showMainButtons, setShowMainButtons] = useState(true);
   const [isViewingMenu, setIsViewingMenu] = useState(false);
 
-  console.log("user--->", user);
-
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
@@ -56,7 +54,6 @@ export default function ChatInterface() {
       addMessage({ type: "text", content: message, isUser: true });
 
       const botResponse = await handleUserMessage(message);
-      console.log("botResponse--->", botResponse);
 
       if (botResponse.items && botResponse.items.length > 0) {
         addMessage({ type: "menu", items: botResponse.items });
@@ -102,13 +99,11 @@ export default function ChatInterface() {
         updatedOrder[item.name] = newQuantity;
       }
 
-      console.log("Updated Order:", updatedOrder);
       return updatedOrder;
     });
 
     setTotal((prevTotal) => {
       const newTotal = Math.max(0, prevTotal + item.price * increment);
-      console.log("Updated Total:", newTotal);
       return newTotal;
     });
   }, []);
