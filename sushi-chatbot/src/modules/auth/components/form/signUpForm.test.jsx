@@ -94,11 +94,11 @@ describe("SignUpForm", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(/Required, Please Enter your User Name/i)
+        screen.getByText(/Obligatorio, por favor ingrese su nombre de usuario/i)
       ).toBeInTheDocument();
-      expect(screen.getByText(/Email is required/i)).toBeInTheDocument();
+      expect(screen.getByText(/El email es requerido/i)).toBeInTheDocument();
       expect(
-        screen.getByText(/Please Enter your password/i)
+        screen.getByText(/Por favor ingrese su contraseña/i)
       ).toBeInTheDocument();
     });
   });
