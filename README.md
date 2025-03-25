@@ -1,6 +1,6 @@
-# Sushi Chatbot IA 1.0 - Frontend
+# Sushi Chatbot 1.0 - Frontend
 
-Bienvenido al frontend del proyecto **Sushi Chatbot IA**, una aplicación interactiva para pedir sushi de manera rápida y sencilla. 🚀  
+Bienvenido al frontend del proyecto **Sushi Chatbot**, una aplicación interactiva para pedir sushi de manera rápida y sencilla. 🚀  
 El chatbot guía al usuario para consultar el menú, realizar pedidos y obtener información sobre los horarios de atención.
 
 ## **Características principales**
@@ -28,8 +28,8 @@ Asegúrate de tener las siguientes herramientas instaladas:
 
 1. Clonar el repositorio
    ```bash
-   git clone https://github.com/Ariel-0810/Nular_ChatBot-Client.git
-   cd Nular_ChatBot-Client/sushi-chatbot
+   git clone https://github.com/Ariel-0810/ChatBot.git
+   cd ChatBot/sushi-chatbot
    ```
 
 2. Instala las dependencias del proyecto:
