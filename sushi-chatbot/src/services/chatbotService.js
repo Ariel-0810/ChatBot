@@ -63,7 +63,7 @@ export async function handleUserMessage(message) {
     return {
       type: "text",
       content:
-        "Nuestro horario de atención es de lunes a domingo, de 11:00 AM a 10:00 PM."
+        "Nuestro horario de atención es de lunes a domingo, de 11:00 HS a 00:00 HS."
     };
   }
 
